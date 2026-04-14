@@ -8,7 +8,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/managed-chatkit/frontend/dist/$1"
+      "destination": "/managed-chatkit/frontend/dist/index.html"
     }
   ]
 }
