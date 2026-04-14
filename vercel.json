@@ -1,4 +1,14 @@
 {
   "buildCommand": "cd managed-chatkit/frontend && npm install && npm run build",
-  "outputDirectory": "managed-chatkit/frontend/dist"
+  "outputDirectory": "managed-chatkit/frontend/dist",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/main"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/managed-chatkit/frontend/dist/$1"
+    }
+  ]
 }
