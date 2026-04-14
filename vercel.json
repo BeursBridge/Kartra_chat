@@ -1,10 +1,19 @@
 {
   "buildCommand": "npm --prefix managed-chatkit/frontend install && npm --prefix managed-chatkit/frontend run build",
   "outputDirectory": "managed-chatkit/frontend/dist",
+  "functions": {
+    "api/**/*.py": {
+      "runtime": "python3.12", // Confirm your desired Python version
+      "includeFiles": [
+        "managed-chatkit/**", // Ensure the entire managed-chatkit directory is included for the Python function
+        "requirements.txt"    // Include requirements for backend dependencies
+      ]
+    }
+  },
   "routes": [
     {
-      "src": "/api/create-session",
-      "dest": "/api/create-session.py"
+      "src": "/api/(.*)", // Route all /api/* requests to your single FastAPI serverless function
+      "dest": "/api/index.py"
     },
     {
       "handle": "filesystem"
