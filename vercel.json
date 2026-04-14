@@ -3,8 +3,12 @@
   "outputDirectory": "managed-chatkit/frontend/dist",
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "/api/index"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/managed-chatkit/frontend/dist/index.html"
+      "destination": "/managed-chatkit/frontend/dist/$1"
     }
   ]
 }
