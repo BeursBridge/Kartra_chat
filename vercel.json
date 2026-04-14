@@ -2,12 +2,9 @@
   "buildCommand": "npm --prefix managed-chatkit/frontend install && npm --prefix managed-chatkit/frontend run build",
   "outputDirectory": "managed-chatkit/frontend/dist",
   "functions": {
-    "api/**/*.py": {
+    "api/index.py": {
       "runtime": "python3.12",
-      "includeFiles": [
-        "managed-chatkit/**",
-        "requirements.txt"
-      ]
+      "includeFiles": "managed-chatkit/**,requirements.txt" 
     }
   },
   "routes": [
