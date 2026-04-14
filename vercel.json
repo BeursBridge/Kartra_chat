@@ -3,7 +3,7 @@
   "outputDirectory": "managed-chatkit/frontend/dist",
   "functions": {
     "api/index.py": {
-      "runtime": "python3.12",
+      "runtime": "python@3.12", // <--- Dit is de correcte, gevalideerde syntax.
       "includeFiles": "managed-chatkit/**,requirements.txt" 
     }
   },
