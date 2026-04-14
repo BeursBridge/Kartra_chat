@@ -17,3 +17,9 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps({"client_secret": session.client_secret}).encode())
         except Exception as e:
             self.wfile.write(json.dumps({"error": str(e)}).encode())
+            
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps({"status": "ok"}).encode())
