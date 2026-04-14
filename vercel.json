@@ -1,11 +1,13 @@
 {
   "buildCommand": "cd managed-chatkit/frontend && npm install && npm run build",
   "outputDirectory": "managed-chatkit/frontend/dist",
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/create-session",
-      "dest": "/api/index.py"
-    },
+      "source": "/api/create-session",
+      "destination": "/api/index.py"
+    }
+  ],
+  "routes": [
     {
       "handle": "filesystem"
     },
