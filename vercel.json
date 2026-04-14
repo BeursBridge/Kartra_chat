@@ -11,7 +11,7 @@
     {
       "src": "/api/create-session",
       "dest": "/api/create-session.py",
-      "methods": ["POST"] // EXPLICIETE SPECIFICATIE VAN DE METHODE
+      "methods": ["POST"]
     },
     {
       "handle": "filesystem"
