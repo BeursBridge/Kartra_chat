@@ -1,16 +1,10 @@
 {
   "buildCommand": "npm --prefix managed-chatkit/frontend install && npm --prefix managed-chatkit/frontend run build",
   "outputDirectory": "managed-chatkit/frontend/dist",
-  "functions": {
-    "api/index.py": {
-      "runtime": "python@3.12", // <--- Dit is de correcte, gevalideerde syntax.
-      "includeFiles": "managed-chatkit/**,requirements.txt" 
-    }
-  },
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/index.py"
+      "src": "/api/create-session",
+      "dest": "/api/create-session.py"
     },
     {
       "handle": "filesystem"
