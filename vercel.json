@@ -1,0 +1,20 @@
+{
+  "buildCommand": "cd managed-chatkit/frontend && npm install && npm run build",
+  "outputDirectory": "managed-chatkit/frontend/dist",
+  "functions": {
+    "managed-chatkit/backend/app/main.py": {
+      "runtime": "python@3.12",
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/managed-chatkit/backend/app/main.py"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/managed-chatkit/frontend/dist/$1"
+    }
+  ]
+}
