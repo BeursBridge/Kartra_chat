@@ -1,10 +1,17 @@
 {
   "buildCommand": "npm --prefix managed-chatkit/frontend install && npm --prefix managed-chatkit/frontend run build",
   "outputDirectory": "managed-chatkit/frontend/dist",
+  "functions": {
+    "api/create-session.py": {
+      "runtime": "python@3.12",
+      "includeFiles": "requirements.txt"
+    }
+  },
   "routes": [
     {
       "src": "/api/create-session",
-      "dest": "/api/create-session.py"
+      "dest": "/api/create-session.py",
+      "methods": ["POST"] // EXPLICIETE SPECIFICATIE VAN DE METHODE
     },
     {
       "handle": "filesystem"
