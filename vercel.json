@@ -12,7 +12,7 @@
       "src": "/api/create-session",
       "dest": "/api/create-session.py",
       "methods": ["POST"]
-    },
+    }, // <-- Deze komma is essentieel voor syntactische correctheid als JSON
     {
       "handle": "filesystem"
     },
