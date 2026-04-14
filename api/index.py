@@ -1,15 +1,19 @@
-# api/index.py
-import sys
 import os
+import json
+from http.server import BaseHTTPRequestHandler
+from openai import OpenAI
 
-# Adjust Python path to include the 'managed-chatkit' directory
-# This allows importing modules from within 'managed-chatkit'
-# The path should be relative to the root of your Vercel project.
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-# Import the FastAPI 'app' instance from your managed-chatkit backend
-# The full path to your FastAPI app within the managed-chatkit structure:
-# managed-chatkit/backend/app/main.py
-from managed_chatkit.backend.app.main import app as application
-
-# Vercel expects an 'application' variable to be the entry point for Python functions.
+class handler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        try:
+            client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+            session = client.beta.chatkit.sessions.create(
+                workflow_id=os.environ.get('VITE_CHATKIT_WORKFLOW_ID'),
+                user_id="vercel-user"
+            )
+            self.wfile.write(json.dumps({"client_secret": session.client_secret}).encode())
+        except Exception as e:
+            self.wfile.write(json.dumps({"error": str(e)}).encode())
