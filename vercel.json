@@ -2,16 +2,16 @@
   "buildCommand": "npm --prefix managed-chatkit/frontend install && npm --prefix managed-chatkit/frontend run build",
   "outputDirectory": "managed-chatkit/frontend/dist",
   "functions": {
-    "api/create-session.py": { // Target specifiek uw Python file
-      "runtime": "python@3.12", // Correcte runtime syntax
-      "includeFiles": "requirements.txt" // Alleen dit als create-session.py geen andere projectbestanden importeert
+    "api/create-session.py": {
+      "runtime": "python@3.12",
+      "includeFiles": "requirements.txt"
     }
   },
   "routes": [
     {
       "src": "/api/create-session",
-      "dest": "/api/create-session.py", // Routeer naar de gedefinieerde functie
-      "methods": ["POST"] // Specificeer expliciet dat POST is toegestaan
+      "dest": "/api/create-session.py",
+      "methods": ["POST"]
     },
     {
       "handle": "filesystem"
