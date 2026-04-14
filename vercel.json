@@ -13,6 +13,10 @@
       "destination": "/managed-chatkit/backend/app/main.py"
     },
     {
+      "source": "/health",
+      "destination": "/managed-chatkit/backend/app/main.py"
+    },
+    {
       "source": "/(.*)",
       "destination": "/managed-chatkit/frontend/dist/$1"
     }
