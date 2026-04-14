@@ -3,7 +3,7 @@
   "outputDirectory": "managed-chatkit/frontend/dist",
   "functions": {
     "api/create-session.py": {
-      "runtime": "now-python@3.12", // <-- Gecorrigeerd naar de exacte syntax die Vercel verwacht
+      "runtime": "now-python@3.12",
       "includeFiles": "requirements.txt"
     }
   },
