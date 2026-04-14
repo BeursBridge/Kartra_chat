@@ -27,7 +27,7 @@ app.add_middleware(
 )
 
 
-@app.get("/health")
+@app.post("/api/create-session")
 async def health() -> Mapping[str, str]:
     return {"status": "ok"}
 
