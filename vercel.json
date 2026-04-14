@@ -3,7 +3,7 @@
   "outputDirectory": "managed-chatkit/frontend/dist",
   "rewrites": [
     {
-      "source": "/api/create-session",
+      "source": "/api/chatkit/session",
       "destination": "/api/index.py"
     }
   ],
